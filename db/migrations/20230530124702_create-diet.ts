@@ -10,8 +10,8 @@ export async function up(knex: Knex): Promise<void> {
   })
   .createTable('diet', (table)=> {
     table.uuid('id').primary().index()
-    table.text('meal').index().notNullable()
-    table.text('description').notNullable()
+    table.string('meal').index().notNullable()
+    table.string('description').notNullable()
     table.enum('onDiet',['yes', 'no']).defaultTo('yes')
     table.timestamp('created_at').defaultTo(knex.fn.now())
   })
